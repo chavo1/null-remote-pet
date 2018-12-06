@@ -1,4 +1,4 @@
-data "random_pet" "server" {
+data "terraform_remote_state" "server" {
   backend = "atlas"
   config {
       name = "chavo4/random_pet"
