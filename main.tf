@@ -6,8 +6,6 @@ resource "null_resource" "server" {
   lifecycle {
     prevent_destroy = true
   }
-
-  depends_on = ["null_resource.server1"]
 }
 
 resource "null_resource" "server1" {
