@@ -1,12 +1,23 @@
-data "random_pet" "server" {
-  backend = "atlas"
-  config {
-      name = "chavo4/random_pet"
+resource "null_resource" "server" {
+  provisioner "local-exec" {
+    command = "echo hello"
+  }
+
+  lifecycle {
+    prevent_destroy = true
+  }
+
+  depends_on = ["null_resource.server1"]
+}
+
+resource "null_resource" "server1" {
+  provisioner "local-exec" {
+    command = "echo hello1"
   }
 }
 
-resource "null_resource" "server" {
+resource "null_resource" "server2" {
   provisioner "local-exec" {
-    command = "echo ${data.random_pet.server.id}"
+    command = "echo hello2"
   }
 }
